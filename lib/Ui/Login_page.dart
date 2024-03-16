@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:water_purifier/Ui/services.dart';
+
+import 'Bottomnavigation.dart';
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
 
@@ -93,7 +95,7 @@ class _LoginpageState extends State<Loginpage> {
                         child: GestureDetector(
                           onTap: (){
                             Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (_)=>Services()));
+                                .push(MaterialPageRoute(builder: (_)=>BottomNavigation()));
                           },
                           child: Container(
                             width: 230.w,

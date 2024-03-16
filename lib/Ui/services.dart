@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Services extends StatefulWidget {
-  const Services({super.key});
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
 
   @override
-  State<Services> createState() => _ServicesState();
+  State<Homepage> createState() => _HomepageState();
 }
 
-class _ServicesState extends State<Services> {
+class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
