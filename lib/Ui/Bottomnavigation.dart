@@ -28,24 +28,24 @@ class _BottomNavigationState extends State<BottomNavigation> {
         items: [
           BottomNavigationBarItem(
             label: "SERVICE",
-            icon: ImageIcon(AssetImage("asset/Service.png")),
-            activeIcon: ImageIcon(AssetImage("asset/Service1.png"))
+            icon: ImageIcon(AssetImage("asset/Icon/Service.png")),
+            activeIcon: ImageIcon(AssetImage("asset/Icon/Service1.png"))
 
           ),
           BottomNavigationBarItem(
               label: "CUSTOMER",
-            icon: ImageIcon(AssetImage("asset/people.png")),
-              activeIcon: ImageIcon(AssetImage("asset/Costumer.png"))
+            icon: ImageIcon(AssetImage("asset/Icon/people.png")),
+              activeIcon: ImageIcon(AssetImage("asset/Icon/Costumer.png"))
           ),
           BottomNavigationBarItem(
             label: "DUES",
-            icon: ImageIcon(AssetImage("asset/Dues.png")),
-              activeIcon: ImageIcon(AssetImage("asset/Dues1.png"))
+            icon: ImageIcon(AssetImage("asset/Icon/Dues.png")),
+              activeIcon: ImageIcon(AssetImage("asset/Icon/Dues1.png"))
           ),
           BottomNavigationBarItem(
             label: "TEST",
-            icon: ImageIcon(AssetImage("asset/Test.png")),
-              activeIcon: ImageIcon(AssetImage("asset/Test1.png"))
+            icon: ImageIcon(AssetImage("asset/Icon/Test.png")),
+              activeIcon: ImageIcon(AssetImage("asset/Icon/Test1.png"))
           ),
         ],
         onTap: (index){

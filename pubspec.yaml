@@ -38,6 +38,9 @@ dependencies:
   flutter_screenutil: ^5.9.0
   persistent_bottom_nav_bar: ^5.0.2
   dropdown_button2: ^2.3.9
+  table_calendar: ^3.0.0
+  font_awesome_flutter: ^10.7.0
+
 
 dev_dependencies:
   flutter_test:
@@ -63,7 +66,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - asset/
+      - asset/Icon/
+      - asset/Img/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

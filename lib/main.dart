@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
+
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,

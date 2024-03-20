@@ -1,7 +1,9 @@
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:water_purifier/Ui/services.dart';
 
 import 'Bottomnavigation.dart';
@@ -11,7 +13,7 @@ class Loginpage extends StatefulWidget {
   @override
   State<Loginpage> createState() => _LoginpageState();
 }
-
+bool _password= false;
 class _LoginpageState extends State<Loginpage> {
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,7 @@ class _LoginpageState extends State<Loginpage> {
                           TextFormField(
                             decoration: InputDecoration(
                               hintText: "Employee code",
+                             
                               hintStyle: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 18.sp,
@@ -78,15 +81,30 @@ class _LoginpageState extends State<Loginpage> {
                         padding: EdgeInsets.only(left:38.w,top: 33.h),
                         child: SizedBox(width: 260.w,
                           child: TextFormField(
+                            obscureText: _password,
                             decoration: InputDecoration(
+
                                 hintText: "Password",
                                 hintStyle: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 16.sp,
                                     color: Color(0xffA5A5A5)
                                 ),
-                              suffixIcon: Icon(Icons.remove_red_eye_outlined,color: Color(0xffA5A5A5),)
+                              suffixIcon: IconButton(
+                                icon: FaIcon(_password==true? FontAwesomeIcons.eye:
+                                  FontAwesomeIcons.eyeSlash
+                                  ,size: 20.h,
+
+                                color: Color(0xffA5A5A5),), onPressed: () {
+
+                                  setState(() {
+                                    _password=!_password;
+                                  });
+                                },
+                              ),
                             ),
+
+
                           ),
                         ),
                       ),

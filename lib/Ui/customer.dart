@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:water_purifier/Ui/Add_costumer.dart';
+import 'package:water_purifier/Ui/Customer_details.dart';
 
 class Customer extends StatefulWidget {
   const Customer({super.key});
@@ -72,7 +73,7 @@ class _CustomerState extends State<Customer> {
                     child: Row(
                       children: [
                         SizedBox(width: 7.w,),
-                       ImageIcon(AssetImage("asset/person.png",),color: Color(0xffFFFFFF),size: 15.h,),
+                       ImageIcon(AssetImage("asset/Icon/person.png",),color: Color(0xffFFFFFF),size: 15.h,),
                         SizedBox(width: 4,),
                         Text("Add New",
                         style: TextStyle(
@@ -123,19 +124,25 @@ class _CustomerState extends State<Customer> {
                     ),
                 Padding(
                   padding: EdgeInsets.only(left: 82.w,top: 40.h),
-                  child: Container(
-                    width: 67.w,
-                    height: 25.h,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: Color(0xffF7F7F7),
-                        borderRadius: BorderRadius.circular(8.r)
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_)=>Customerdetails()));
+                    },
+                    child: Container(
+                      width: 67.w,
+                      height: 25.h,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Color(0xffF7F7F7),
+                          borderRadius: BorderRadius.circular(8.r)
+                      ),
+                      child: Text("Check ",style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xff1256BC)
+                      ),),
                     ),
-                    child: Text("Check ",style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff1256BC)
-                    ),),
                   ),
                 )
                   ],

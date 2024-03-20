@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:water_purifier/Ui/test_profile.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -17,7 +18,7 @@ class _HomepageState extends State<Homepage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 30.w, top: 78.h),
+            padding: EdgeInsets.only(left: 30.w, top: 58.h),
             child: Row(
               children: [
                 Text(
@@ -30,10 +31,15 @@ class _HomepageState extends State<Homepage> {
                 SizedBox(
                   width: 220.w,
                 ),
-                Icon(
-                  Icons.person_outline,
-                  size: 33.h,
-                  color: Color(0xff121212),
+                IconButton(
+                  icon: Icon(
+                    Icons.person_outline,
+                    size: 33.h,
+                    color: Color(0xff121212),
+                  ), onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (_) => Testprofile()));
+                }
                 )
               ],
             ),

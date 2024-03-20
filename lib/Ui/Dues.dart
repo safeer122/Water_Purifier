@@ -13,7 +13,7 @@ class _DuesState extends State<Dues> {
     return Scaffold(
         backgroundColor: Color(0xffF7F7F7),
       body: Padding(
-        padding: EdgeInsets.only(left: 20.w,top: 77.h,right: 20.w),
+        padding: EdgeInsets.only(left: 20.w,top: 70.h,right: 20.w),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
