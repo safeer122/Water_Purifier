@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:water_purifier/Ui/Add_costumer.dart';
 import 'package:water_purifier/Ui/product_details.dart';
 
 class Customerdetails extends StatefulWidget {
@@ -31,20 +32,26 @@ class _CustomerdetailsState extends State<Customerdetails> {
                 SizedBox(
                   width: 120.w,
                 ),
-                Container(
-                    width: 88.w,
-                    height: 44.h,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: Color(0xff1256BC),
-                        borderRadius: BorderRadius.circular(8.r)),
-                    child: Text(
-                      "Add New",
-                      style: TextStyle(
-                          fontSize: 13.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xffF7F7F7)),
-                    )),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_)=>Addcustomer()));
+                  },
+                  child: Container(
+                      width: 88.w,
+                      height: 44.h,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Color(0xff1256BC),
+                          borderRadius: BorderRadius.circular(8.r)),
+                      child: Text(
+                        "Add New",
+                        style: TextStyle(
+                            fontSize: 13.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xffF7F7F7)),
+                      )),
+                ),
               ],
             ),
             SizedBox(
@@ -107,7 +114,9 @@ class _CustomerdetailsState extends State<Customerdetails> {
                 ),
               ),
             ),
-            SizedBox(height: 53.h,),
+            SizedBox(
+              height: 53.h,
+            ),
             Text(
               "Products",
               style: TextStyle(
@@ -115,40 +124,41 @@ class _CustomerdetailsState extends State<Customerdetails> {
                   fontWeight: FontWeight.w500,
                   color: Color(0xff121212)),
             ),
-            SizedBox(height: 12.h,),
+            SizedBox(
+              height: 12.h,
+            ),
             Container(
               width: 350.w,
-
               decoration: BoxDecoration(
-                color: Color(0xffE6F0FF),
-                borderRadius: BorderRadius.circular(8.r)
-              ),
-              child:  SizedBox(
-                height: 5*30.h,
+                  color: Color(0xffE6F0FF),
+                  borderRadius: BorderRadius.circular(8.r)),
+              child: SizedBox(
+                height: 5 * 30.h,
                 child: ListView.separated(
-                  physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+                  physics:
+                      ScrollPhysics(parent: NeverScrollableScrollPhysics()),
                   itemBuilder: (context, index) {
-                    return   Padding(
-                      padding:EdgeInsets.symmetric(horizontal: 20.w),
+                    return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: Column(
                         children: [
-                          Row(mainAxisAlignment:MainAxisAlignment.start,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(
                                 width: 167.w,
                                 child: Text(
-
                                   "Livpure Smart Bolt For Rent 7 L Water Purifie",
                                   style: TextStyle(
-
                                       fontSize: 13.sp,
                                       fontWeight: FontWeight.w400,
                                       color: Color(0xff363636)),
-
                                 ),
                               ),
-                              SizedBox(width: 35.w,),
+                              SizedBox(
+                                width: 35.w,
+                              ),
                               Text(
                                 "22 -10 -2023",
                                 style: TextStyle(
@@ -156,17 +166,25 @@ class _CustomerdetailsState extends State<Customerdetails> {
                                     fontWeight: FontWeight.w500,
                                     color: Color(0xff121212)),
                               ),
-                              SizedBox(width: 8.w,),
+                              SizedBox(
+                                width: 8.w,
+                              ),
                               GestureDetector(
-                                  onTap: (){
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(builder: (_)=>Productdetails()));
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) => Productdetails()));
                                   },
-                                  child: Icon(Icons.info_outline,color:Color(0xff1256BC),size: 20.h,))
+                                  child: Icon(
+                                    Icons.info_outline,
+                                    color: Color(0xff1256BC),
+                                    size: 20.h,
+                                  ))
                             ],
                           ),
+                          SizedBox(height: 10.h,),
                           SizedBox(
-                            width:290,
+                            width: 290,
                             child: Divider(
                               thickness: 1.h,
                               color: Color(0xff66696C),
@@ -175,20 +193,15 @@ class _CustomerdetailsState extends State<Customerdetails> {
                         ],
                       ),
                     );
-
                   },
-                  itemCount:5,
+                  itemCount: 5,
                   separatorBuilder: (BuildContext context, int index) {
                     return SizedBox(
-                      height: 10.h,
+                      height: 5.h,
                     );
                   },
-
-
                 ),
-
               ),
-
             )
           ],
         ),

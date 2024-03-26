@@ -102,6 +102,7 @@ class _AddcustomerState extends State<Addcustomer> {
                   child: SizedBox(
                     width: 300.w,
                     child: TextFormField(
+                      keyboardType: TextInputType.numberWithOptions(),
                       decoration: InputDecoration(
                           hintText: "Phone Number",
                           hintStyle: TextStyle(
@@ -131,6 +132,7 @@ class _AddcustomerState extends State<Addcustomer> {
                       child: SizedBox(
                         width: 150.w,
                         child: TextFormField(
+                          keyboardType: TextInputType.numberWithOptions(),
                           decoration: InputDecoration(
                               hintText: "Latitude",
                               hintStyle: TextStyle(
@@ -158,6 +160,7 @@ class _AddcustomerState extends State<Addcustomer> {
                       child: SizedBox(
                         width: 150.w,
                         child: TextFormField(
+                          keyboardType: TextInputType.numberWithOptions(),
                           decoration: InputDecoration(
                               hintText: "Longitude",
                               hintStyle: TextStyle(

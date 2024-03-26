@@ -1,43 +1,75 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:water_purifier/Bloc/Profile_screen/profile_bloc.dart';
+
+import '../Reprocitory/modelclass/Profile.dart';
 class Testprofile extends StatefulWidget {
   const Testprofile({super.key});
 
   @override
   State<Testprofile> createState() => _TestprofileState();
 }
-
+late ProfileModel profile;
 class _TestprofileState extends State<Testprofile> {
+  @override
+  void initState() {
+    BlocProvider.of<ProfileBloc>(context).add(FetchProfile());
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffF7F7F7),
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start,
+      body: BlocBuilder<ProfileBloc, ProfileState>(
+  builder: (context, state) {
+    if(state is ProfileblocLoading){
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+    if(state is ProfileblocError){
+      return Center(child: Text("Error",style: TextStyle(
+        color: Colors.black
+      ),));
+    }
+    if(state is ProfileblocLoaded){
+      profile=BlocProvider
+          .of<ProfileBloc>(context)
+          .profile;
+
+    return Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
-              Container(
-                width: 390.w,
-                height: 241.h,
-                decoration: BoxDecoration(
-                  color: Color(0xff1256BC),
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(22.r),
-                    bottomLeft: Radius.circular(22.r)
-                  )
-                ),
-                child: Padding(
-                  padding: EdgeInsets.only(left: 21.w,top: 70.h),
-                  child: Row(crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ImageIcon(AssetImage("asset/Icon/arrow.png"),size: 22.h,color:  Color(0xffF7F7F7),),
-                      SizedBox(width: 11.w,),
-                      Text("Back To Home",style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color:  Color(0xffF7F7F7),
-                      ),)
-                    ],
+              GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  width: 390.w,
+                  height: 241.h,
+                  decoration: BoxDecoration(
+                    color: Color(0xff1256BC),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(22.r),
+                      bottomLeft: Radius.circular(22.r)
+                    )
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 21.w,top: 70.h),
+                    child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ImageIcon(AssetImage("asset/Icon/arrow.png"),size: 22.h,color:  Color(0xffF7F7F7),),
+                        SizedBox(width: 11.w,),
+                        Text("Back To Home",style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color:  Color(0xffF7F7F7),
+                        ),)
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -57,7 +89,7 @@ class _TestprofileState extends State<Testprofile> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: 123.w,top: 70.h),
-                        child: Text("Sanal Babu",style: TextStyle(
+                        child: Text(profile.name.toString(),style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 22.sp,
                           color: Color(0xff121212)
@@ -66,7 +98,7 @@ class _TestprofileState extends State<Testprofile> {
 
                       Padding(
                         padding: EdgeInsets.only(left: 139.w,),
-                        child: Text("code 220014",style: TextStyle(
+                        child: Text(profile.employeeCode.toString(),style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 14.sp,
                             color: Color(0xff656565)
@@ -86,11 +118,17 @@ class _TestprofileState extends State<Testprofile> {
                                         color: Color(0xff979797)
                                     ),),
                                     SizedBox(height: 5,),
-                                    Text("Gear Building, vk Rd, Up Hill, Malappuram",style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14.sp,
-                                        color: Color(0xff121212)
-                                    ),),
+                                    SizedBox(width: 265.w,
+                                      child: Text(profile.address.toString(),
+                                          maxLines: 1
+                                          ,style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+
+                                          overflow: TextOverflow.ellipsis,
+                                          fontSize: 14.sp,
+                                          color: Color(0xff121212)
+                                      ),),
+                                    ),
                                   ],
                                 ),
                                 SizedBox(width: 25),
@@ -109,14 +147,14 @@ class _TestprofileState extends State<Testprofile> {
                                         color: Color(0xff979797)
                                     ),),
                                     SizedBox(height: 5,),
-                                    Text("9602121515",style: TextStyle(
+                                    Text(profile.mobile.toString(),style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16.sp,
                                         color: Color(0xff121212)
                                     ),),
                                   ],
                                 ),
-                                SizedBox(width: 188),
+                                SizedBox(width: 185),
                                 Icon(Icons.arrow_forward_ios_outlined,color: Color(0xff121212),size: 22.h,)
                               ],
                             ),
@@ -126,20 +164,24 @@ class _TestprofileState extends State<Testprofile> {
                               children: [
                                 Column(crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("DOB",style: TextStyle(
+                                    Text("Email",style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16.sp,
                                         color: Color(0xff979797)
                                     ),),
                                     SizedBox(height: 5,),
-                                    Text("22- 04 -2000",style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16.sp,
-                                        color: Color(0xff121212)
-                                    ),),
+                                    SizedBox(
+                                      width: 250.w,
+                                      child: Text(profile.email.toString(),style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          overflow: TextOverflow.ellipsis,
+                                          fontSize: 16.sp,
+                                          color: Color(0xff121212)
+                                      ),),
+                                    ),
                                   ],
                                 ),
-                                SizedBox(width: 188),
+                                SizedBox(width:40 ),
                                 Icon(Icons.arrow_forward_ios_outlined,color: Color(0xff121212),size: 22.h,)
                               ],
                             ),
@@ -155,7 +197,7 @@ class _TestprofileState extends State<Testprofile> {
                                         color: Color(0xff979797)
                                     ),),
                                     SizedBox(height: 5,),
-                                    Text("30- 08 -2023",style: TextStyle(
+                                    Text(profile.createdOn.toString(),style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16.sp,
                                         color: Color(0xff121212)
@@ -198,7 +240,12 @@ class _TestprofileState extends State<Testprofile> {
             ],
           )
         ],
-      ),
+      );
+    }else {
+      return SizedBox();
+    }
+  },
+),
     );
   }
 }

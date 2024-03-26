@@ -18,7 +18,7 @@ class _HomepageState extends State<Homepage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 30.w, top: 58.h),
+            padding: EdgeInsets.only(left: 20.w, top: 58.h),
             child: Row(
               children: [
                 Text(
@@ -29,7 +29,7 @@ class _HomepageState extends State<Homepage> {
                       color: Color(0xff121212)),
                 ),
                 SizedBox(
-                  width: 220.w,
+                  width: 230.w,
                 ),
                 IconButton(
                   icon: Icon(
@@ -48,7 +48,7 @@ class _HomepageState extends State<Homepage> {
             child: ListView.separated(
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.only(left: 30.w,right: 30.w),
+                  padding: EdgeInsets.only(left: 20.w,right: 20.w),
                   child: Container(
                     width:350.w ,
                     height: 147.h,
@@ -89,7 +89,7 @@ class _HomepageState extends State<Homepage> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 30.w,top: 50.h),
+                            padding: EdgeInsets.only(left: 50.w,top: 50.h),
                             child: Column(
                               children: [
                                 Container(
